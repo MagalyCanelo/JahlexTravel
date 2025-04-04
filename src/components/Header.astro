@@ -1,0 +1,116 @@
+---
+import "../styles/global.css";
+import HeaderButton from "./HeaderButton.astro";
+import wave from "../assets/wave.svg";
+import logo from "../assets/logo.jpg";
+import icono from "../assets/icono.png";
+---
+
+<!-- Contenedor móvil -->
+<div class="flex justify-center items-center w-full md:hidden mt-4">
+  <HeaderButton
+    link="https://www.google.com/"
+    target="_blank"
+    class="mx-auto text-white"
+  >
+    Inicio
+  </HeaderButton>
+
+  <!-- Botón Hamburguesa -->
+  <button class="ml-4 text-black focus:outline-none" id="menu-btn">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2 text-white"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M4 6l16 0"></path>
+      <path d="M4 12l16 0"></path>
+      <path d="M4 18l16 0"></path>
+    </svg>
+  </button>
+</div>
+
+<!-- MENÚ DESPLEGABLE SOLO EN MÓVIL -->
+<div
+  id="mobile-menu"
+  class="hidden flex flex-col items-center bg-white shadow-lg rounded-lg p-4 w-full mt-4 md:hidden"
+>
+  <HeaderButton link="#">Nosotros</HeaderButton>
+  <HeaderButton link="#">Tours</HeaderButton>
+  <HeaderButton link="#">Contacto</HeaderButton>
+</div>
+
+<!-- MENÚ COMPLETO EN ESCRITORIO (Incluye Google) -->
+<nav class="hidden md:flex gap-4 text-white">
+  <HeaderButton link="https://www.google.com/" target="_blank"
+    >Inicio</HeaderButton
+  >
+  <HeaderButton link="#">Nosotros</HeaderButton>
+  <HeaderButton link="#">Tours</HeaderButton>
+  <HeaderButton link="#">Contacto</HeaderButton>
+
+  <!-- ICONOS -->
+  <HeaderButton link="#"
+    ><svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-search"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path><path
+        d="M21 21l-6 -6"></path></svg
+    ></HeaderButton
+  >
+  <HeaderButton link="#"
+    ><svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
+        d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path><path
+        d="M17 17h-11v-14h-2"></path><path d="M6 5l14 1l-1 7h-13"></path></svg
+    ></HeaderButton
+  >
+  <HeaderButton link="#"
+    ><svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-user"
+      ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+        d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path><path
+        d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg
+    ></HeaderButton
+  >
+</nav>
+
+<script>
+  document.getElementById("menu-btn")?.addEventListener("click", () => {
+    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+  });
+</script>

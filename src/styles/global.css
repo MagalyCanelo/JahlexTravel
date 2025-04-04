@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.wave-background {
+    background-image: url("../assets/wave.svg"); /* Ruta de la imagen */
+    background-size: cover; /* Ajuste para que cubra toda la sección */
+    background-repeat: no-repeat;
+    background-position: center bottom; /* Mantenerlo en la parte inferior */
+    min-height: 500px; /* Ajusta la altura */
+    width: 100%; /* Asegura que cubra todo el ancho */
+  }
+  
+  body {
+    font-family: 'Marck Script', cursive;
+  }
