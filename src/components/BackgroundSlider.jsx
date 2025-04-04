@@ -25,7 +25,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className="relative w-full h-[90rem] flex flex-row justify-between p-4 items-center">
+    <div className="relative w-full h-[50rem] flex flex-row justify-between p-4 items-center">
       {images.map((image, index) => (
         <img
           key={index}
