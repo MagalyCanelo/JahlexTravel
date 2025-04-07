@@ -2,36 +2,18 @@
 import "../styles/global.css";
 import logo from "../assets/logo.png";
 import WaveBackground from "../components/WaveBackground.astro";
-import BackgroundSlider from "./BackgroundSlider.astro";
+import BackgroundSlider from "./BackgroundSlider.jsx";
 import icono from "../assets/icono.png";
 import "@fontsource/marck-script";
 ---
 
-<header class="relative w-full">
-  <!-- Contenedor del Wave -->
-  <div class="relative w-full h-[400px] bg-transparent overflow-hidden">
-    <!-- Fondo del Wave -->
-    <div class="absolute inset-0 z-0">
-      <WaveBackground />
-    </div>
-
-    <!-- Logo (más arriba) -->
-    <div class="absolute top-[25%] left-4 z-20 transform -translate-y-1/2">
-      <img src={icono.src} alt="Logo de la empresa" class="w-38" />
-    </div>
-
-    <!-- Texto "Bienvenidos" (un poquito más arriba) -->
-    <div class="absolute top-[18%] left-2/5 transform -translate-y-1/2 z-10">
-      <p class="text-white text-6xl font-marck">Bienvenidos</p>
-    </div>
+<header class="relative w-full h-fit">
+  <div class="absolute w-full flex flex-row justify-between z-[99] items-center p-4">
+    <img src={icono.src} alt="Logo de la empresa" class="w-38" />
+    <p class="text-black text-6xl font-marck">Bienvenidos</p>
+    <span></span>
   </div>
-
-  <!-- Contenido adicional fuera del Wave -->
-  <div class="px-6 py-10">
-    <!-- Aquí puedes agregar contenido adicional -->
-  </div>
-
-  <div class="relative w-full h-[400px] z-10">
-    <BackgroundSlider />
+  <div class="absolute z-10 w-full h-64 top-0">
+    <WaveBackground />
   </div>
 </header>
