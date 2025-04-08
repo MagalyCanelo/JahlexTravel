@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import ib from "../assets/islas-ballestas.jpg";
-import rnp from "../assets/roja.jpeg";
+import rnp from "../assets/roja.jpg";
 import huacachina from "../assets/huacachina.jpeg";
 
-const images= [ib.src, rnp.src, huacachina.src];
+const images = [ib.src, rnp.src, huacachina.src];
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +21,9 @@ export default function Carousel() {
   };
 
   const prevImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   return (
@@ -36,9 +38,8 @@ export default function Carousel() {
           }`}
         />
       ))}
-
       <button
-        className="bg-black text-white rounded-full p-2 z-10"
+        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-10"
         aria-label="Previous Slide"
         onClick={prevImage}
       >
@@ -46,7 +47,7 @@ export default function Carousel() {
       </button>
 
       <button
-        className="bg-black text-white rounded-full p-2 z-10"
+        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-10"
         aria-label="Next Slide"
         onClick={nextImage}
       >

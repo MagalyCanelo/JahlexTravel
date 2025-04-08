@@ -1,0 +1,15 @@
+---
+const { titulo, icono, boton } = Astro.props;
+---
+
+<div
+  class="bg-white border rounded-xl p-6 w-[300px] md:w-[350px] shadow-lg flex flex-col items-center"
+>
+  <div class="flex items-center justify-start w-full mb-4">
+    <img src={icono} alt="Ícono" class="w-12 h-12 mr-4" />
+    <h3 class="text-xl font-semibold">{titulo}</h3>
+  </div>
+  <button class="bg-blue-500 text-white px-6 py-2 rounded-full w-full mt-auto">
+    {boton}
+  </button>
+</div>
