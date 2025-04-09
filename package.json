@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.3",
+    "@fontsource-variable/nunito": "^5.2.5",
     "@fontsource/marck-script": "^5.2.5",
     "@tailwindcss/vite": "^4.0.17",
     "@types/react": "^19.1.0",

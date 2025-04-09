@@ -43,7 +43,7 @@ export default function Carousel() {
         />
       ))}
 
-      {/* Botón de anterior */}
+      {/* Botón de anterior 
       <button
         className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
         aria-label="Previous Slide"
@@ -52,14 +52,14 @@ export default function Carousel() {
         &lt;
       </button>
 
-      {/* Botón de siguiente */}
+      {/* Botón de siguiente
       <button
         className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
         aria-label="Next Slide"
         onClick={nextImage}
       >
         &gt;
-      </button>
+      </button> */}
     </div>
   );
 }

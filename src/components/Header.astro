@@ -1,21 +1,197 @@
 ---
 import "../styles/global.css";
-import "@fontsource/marck-script";
+import "@fontsource-variable/nunito";
 import logo from "../assets/logo.png";
 import icono from "../assets/icono.png";
 ---
 
 <header class="relative w-full h-fit">
-  <div
-    class="absolute w-full flex flex-row justify-between z-[99] items-center p-4"
-  >
-    <img src={logo.src} alt="Logo de la empresa" class="w-64" />
-    <p
-      class="absolute left-1/2 top-[35%] -translate-x-1/2 -translate-y-1/2 text-white text-5xl font-marck"
+  <div class="absolute w-full grid grid-cols-3 items-center z-[99] p-4">
+    <div class="flex justify-start">
+      <img src={logo.src} alt="Logo de la empresa" class="w-64" />
+    </div>
+
+    <div class="flex justify-center">
+      <nav
+        class="border border-white rounded-full px-6 py-2 flex space-x-6 items-center text-white text-sm font-semibold whitespace-nowrap min-w-[525px]"
+      >
+        <a href="#" class="px-4 py-1 rounded-full bg-white/30">INICIO</a>
+        <a
+          href="#"
+          class="inline-block text-center min-w-[140px] py-1 rounded-full transition-all duration-100
+         bg-transparent hover:bg-white hover:px-2 hover:text-black"
+        >
+          SOBRE NOSOTROS
+        </a>
+
+        <div class="relative group">
+          <button
+            class="text-center min-w-[90px] py-1 rounded-full transition-all duration-200
+                   bg-transparent hover:bg-white hover:px-2 hover:text-black flex items-center justify-center gap-1"
+          >
+            TOURS
+            <span
+              class="transform transition-transform duration-200 group-hover:rotate-180"
+            >
+              &#9662;
+            </span>
+          </button>
+        </div>
+
+        <a
+          href="#"
+          class="inline-block text-center min-w-[90px] py-1 rounded-full transition-all duration-100
+         bg-transparent hover:bg-white hover:px-2 hover:text-black"
+        >
+          CONTACTO
+        </a>
+      </nav>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <div class="flex justify-end p-4">
+      <button id="hamburgerBtn">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-white cursor-pointer"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M4 6l16 0"></path>
+          <path d="M4 12l16 0"></path>
+          <path d="M4 18l16 0"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div
+      id="sidebar"
+      class="fixed top-0 right-0 h-full w-80 bg-black text-white p-6 transform translate-x-full transition-all duration-700 ease-out z-50"
     >
-      Bienvenidos
-    </p>
-    <span></span>
+      <button id="closeBtn" class="text-white text-2xl mb-6 cursor-pointer">
+        &times;
+      </button>
+
+      <h1 class="text-4xl font-serif mb-4">JAHLEX TRAVEL ADVENTURE</h1>
+      <p class="mb-6 text-sm text-gray-300">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+      </p>
+
+      <h2 class="text-xl font-semibold mb-2">CONTACTANOS:</h2>
+      <p class="text-sm">Direccion</p>
+      <p class="text-sm mt-2">(+51) 999 999 999</p>
+      <p class="text-sm">jahlex@mail.com</p>
+
+      <div class="flex space-x-4 mt-6 text-xl">
+        <a
+          href="https://github.com/MagalyCanelo/JahlexTravel/blob/main/src/pages/index.astro"
+          class="text-white hover:text-gray-400 cursor-pointer"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tiktok"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917z"
+            ></path>
+          </svg>
+        </a>
+
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          class="text-white hover:text-gray-400"
+        >
+          <i class="fab fa-twitter"></i>
+        </a>
+
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          class="text-white hover:text-gray-400"
+        >
+          <i class="fab fa-facebook"></i>
+        </a>
+
+        <a
+          href="https://youtube.com"
+          target="_blank"
+          class="text-white hover:text-gray-400"
+        >
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/40 opacity-0 transition-opacity duration-300 ease-in-out hidden z-40"
+    >
+    </div>
+
+    <script>
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      const closeBtn = document.getElementById("closeBtn");
+
+      if (hamburgerBtn && sidebar && overlay && closeBtn) {
+        hamburgerBtn.addEventListener("click", () => {
+          if (sidebar.classList.contains("translate-x-full")) {
+            overlay.classList.remove("hidden");
+            overlay.classList.add("opacity-100");
+
+            sidebar.classList.remove("translate-x-full", "opacity-0");
+            sidebar.classList.add("translate-x-0", "opacity-100");
+          }
+        });
+
+        closeBtn.addEventListener("click", () => {
+          sidebar.classList.remove("opacity-100", "translate-x-0");
+          sidebar.classList.add("translate-x-full", "opacity-0");
+
+          overlay.classList.remove("opacity-100");
+          overlay.classList.add("opacity-0");
+
+          setTimeout(() => {
+            overlay.classList.add("hidden");
+          }, 700);
+        });
+
+        overlay.addEventListener("click", () => {
+          sidebar.classList.remove("opacity-100", "translate-x-0");
+          sidebar.classList.add("translate-x-full", "opacity-0");
+
+          overlay.classList.remove("opacity-100");
+          overlay.classList.add("opacity-0");
+
+          setTimeout(() => {
+            overlay.classList.add("hidden");
+          }, 700);
+        });
+
+        sidebar.addEventListener("click", (e) => {
+          e.stopPropagation();
+        });
+      } else {
+        console.warn(
+          "Uno o más elementos del menú no fueron encontrados en el DOM."
+        );
+      }
+    </script>
   </div>
-  <div class="absolute z-10 w-full h-64 top-0"></div>
 </header>
