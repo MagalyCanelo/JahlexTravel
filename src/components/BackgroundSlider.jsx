@@ -27,7 +27,11 @@ export default function Carousel() {
   };
 
   return (
-    <div className="relative w-full h-[50rem] flex flex-row justify-between p-4 items-center">
+    <div className="relative w-full h-[50rem] flex flex-row justify-between items-center">
+      {/* Fondo de color encima de las imágenes */}
+      <div className="absolute w-full h-full bg-black/5 z-10" />
+
+      {/* Carrusel de imágenes */}
       {images.map((image, index) => (
         <img
           key={index}
@@ -38,16 +42,19 @@ export default function Carousel() {
           }`}
         />
       ))}
+
+      {/* Botón de anterior */}
       <button
-        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-10"
+        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
         aria-label="Previous Slide"
         onClick={prevImage}
       >
         &lt;
       </button>
 
+      {/* Botón de siguiente */}
       <button
-        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-10"
+        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
         aria-label="Next Slide"
         onClick={nextImage}
       >
