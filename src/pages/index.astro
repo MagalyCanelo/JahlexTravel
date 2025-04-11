@@ -1,5 +1,7 @@
 ---
 import BackgroundSlider from "../components/BackgroundSlider.jsx";
+import CommentCard from "../components/CommentCard.astro";
+import CommentCardList from "../components/CommentCardList.astro";
 import Destinations from "../components/Destinations.astro";
 
 import Layout from "../layouts/Layout.astro";
@@ -9,5 +11,16 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <BackgroundSlider client:load />
-  <Destinations />
+
+  <CommentCardList client:load>
+    <CommentCard
+      name="John Doe"
+      comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      date="2023-10-01"
+    />
+    <CommentCard
+      name="Jane Smith"
+      comment="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      date="2023-10-02"
+    />
 </Layout>
