@@ -1,9 +1,18 @@
+import "@fontsource-variable/nunito";
 import { useState, useEffect } from "react";
+import { FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { SiTripadvisor } from "react-icons/si";
 import ib from "../assets/islas-ballestas.jpg";
 import rnp from "../assets/roja.jpg";
 import huacachina from "../assets/huacachina.jpeg";
 
 const images = [ib.src, rnp.src, huacachina.src];
+
+const texts = [
+  "Explora las Islas Ballestas, un paraíso natural",
+  "Reserva Nacional de Paracas",
+  "Vive la aventura en el oasis de la Huacachina",
+];
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,24 +21,13 @@ export default function Carousel() {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
-  };
-
   return (
-    <div className="relative w-full h-[50rem] flex flex-row justify-between items-center">
-      {/* Fondo de color encima de las imágenes */}
-      <div className="absolute w-full h-full bg-black/5 z-10" />
+    <div className="relative w-full h-[50rem]">
+      {/* Fondo oscuro encima */}
+      <div className="absolute w-full h-full bg-black/8 z-10" />
 
       {/* Carrusel de imágenes */}
       {images.map((image, index) => (
@@ -37,29 +35,48 @@ export default function Carousel() {
           key={index}
           src={image}
           alt={`Background ${index + 1}`}
-          className={`absolute w-full h-full left-0 object-cover transition-opacity duration-500 ease-in-out ${
+          className={`absolute w-full h-full left-0 object-cover transition-opacity duration-1000 ease-in-out ${
             currentIndex === index ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
 
-      {/* Botón de anterior 
-      <button
-        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
-        aria-label="Previous Slide"
-        onClick={prevImage}
-      >
-        &lt;
-      </button>
+      {/* Texto sobre las imágenes */}
+      <div className="absolute z-20 bottom-10 left-10 text-white max-w-xl nunito-script">
+        <h1 className="text-5xl font-bold leading-tight drop-shadow-lg">
+          {texts[currentIndex]}
+        </h1>
+        <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition">
+          Reservar Ahora →
+        </button>
+      </div>
 
-      {/* Botón de siguiente
-      <button
-        className="bg-[#024dae] text-white font-bold rounded-full w-10 h-10 flex items-center justify-center z-20"
-        aria-label="Next Slide"
-        onClick={nextImage}
-      >
-        &gt;
-      </button> */}
+      <div className="absolute right-5 bottom-10 z-30 flex flex-col gap-6 text-white text-2xl">
+        <a
+          href="https://www.tiktok.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
+        >
+          <FaTiktok className="text-black" />
+        </a>
+        <a
+          href="https://www.tripadvisor.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
+        >
+          <SiTripadvisor className="text-black" />
+        </a>
+        <a
+          href="https://wa.me/1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
+        >
+          <FaWhatsapp className="text-black" />
+        </a>
+      </div>
     </div>
   );
 }
