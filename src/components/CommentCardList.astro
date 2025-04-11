@@ -6,14 +6,18 @@ const users = await fetch(
 )
   .then((res) => res.json())
   .then((data) => data.results);
+import imagen from "../assets/huacachina.jpeg";
 ---
 
 <div
   class="relative w-full overflow-hidden h-[48rem] bg-gray-900 rounded-lg shadow-md"
 >
-  <div
-    class="absolute inset-0 w-full h-full bg-no-repeat bg-cover bg-[linear-gradient(to_top,_rgba(0,0,0,0.9),_transparent),url('../assets/huacachina.jpeg')]"
-  >
+  <div class="absolute inset-0 w-full h-full">
+    <span class="block w-full h-full">
+      <img src={imagen.src} alt="" class="w-full h-full object-cover" />
+    </span>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent">
+    </div>
   </div>
 </div>
 <div
