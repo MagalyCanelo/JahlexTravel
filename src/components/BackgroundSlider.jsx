@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { SiTripadvisor } from "react-icons/si";
 import ib from "../assets/islas-ballestas.jpg";
-import rnp from "../assets/roja.jpg";
+import rnp from "../assets/roja.JPG";
 import huacachina from "../assets/huacachina.jpeg";
 
 const images = [ib.src, rnp.src, huacachina.src];
