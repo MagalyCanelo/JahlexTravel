@@ -1,0 +1,117 @@
+---
+import ImageSlider from "../../components/TourCard/ImageSlider";
+import type { BaseTour } from "../../types/Service";
+
+export const prerender = false;
+//get parameters from the url
+const { slug } = Astro.params;
+
+const tour: BaseTour = JSON.parse(decodeURIComponent(slug || '""'));
+console.log("Decoded slug:", tour);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>{tour.title}</title>
+  </head>
+  <body class="bg-gray-100 text-gray-900 p-4">
+    <main class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Galería -->
+      <div class="w-full h-96">
+        <ImageSlider images={tour.images} client:load />
+      </div>
+      <div class="p-4">
+        <h1 class="text-4xl font-bold text-green-900">{tour.title}</h1>
+        <div class="mt-4 space-y-2">
+          <p class="text-lg text-bold text-gray-600">
+            Ubicación: {tour.location}
+          </p>
+          <p class="text-lg text-bold text-gray-600">
+            Duración: {tour.duration}
+          </p>
+          <p class="text-lg text-bold text-gray-600">
+            Nivel: {tour.activityLevel}
+          </p>
+          <p class="text-lg text-bold text-gray-600">Grupo: {tour.groupSize}</p>
+          <p class="text-lg text-bold text-gray-600">
+            Rating: ⭐ {tour.rating.toFixed(1)}
+          </p>
+        </div>
+      </div>
+      <!-- Detalles -->
+      <section
+        class="col-span-1 md:col-span-2 bg-white p-6 rounded-lg shadow-md space-y-4"
+      >
+        <div>
+          <h2 class="text-xl font-semibold">Descripción</h2>
+          <p>{tour.description}</p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold">Itinerario</h2>
+          <ul class="list-disc pl-5 space-y-1">
+            {tour.itinerary.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <h3 class="text-lg font-semibold text-green-800">Incluye</h3>
+            <ul class="pl-2">
+              {tour.includes.map((item) => <li>✔ {item}</li>)}
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-red-800">No Incluye</h3>
+            <ul class="pl-2">
+              {tour.notIncluded.map((item) => <li>❌ {item}</li>)}
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold">Recomendaciones</h3>
+          <ul class="pl-2">
+            {tour.recommendations.map((item) => <li>👍 {item}</li>)}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold">Fechas disponibles</h3>
+          <ul class="pl-2 grid grid-cols-4 gap-2  w-fit mt-2">
+            {
+              tour.availableDates.map((date) => (
+                <li class="bg-gray-200 w-fit px-3 py-1 rounded-full">
+                  {new Date(date).toLocaleDateString()}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold">Horarios</h3>
+          <p>{tour.schedule.join(" / ")}</p>
+        </div>
+
+        <div class="text-2xl font-bold text-green-700">
+          Precio: <span class="line-through text-red-500"
+            >${tour.priceRegular.toFixed(2)}</span
+          > ${tour.priceOffer.toFixed(2)}
+        </div>
+
+        <a
+          href={`/reservar/${tour.id}`}
+          class="block w-full text-center bg-green-700 text-white py-2 rounded hover:bg-green-800 transition"
+        >
+          Reservar Ahora
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
