@@ -6,11 +6,11 @@ import huacachina from "../assets/huacachina.jpeg";
 import CommentCard from "./CommentCard.astro";
 
 const destinos = [
-  { nombre: "Indonesia", imagen: ib.src },
-  { nombre: "Thailand", imagen: rnp.src },
-  { nombre: "Turkey", imagen: huacachina.src },
-  { nombre: "Japan", imagen: ib.src },
-  { nombre: "Singapore", imagen: rnp.src },
+  { nombre: "Paracas", imagen: ib.src },
+  { nombre: "Ica", imagen: rnp.src },
+  { nombre: "Cañete", imagen: huacachina.src },
+  { nombre: "Nazca", imagen: ib.src },
+  { nombre: "Cuzco", imagen: rnp.src },
 ];
 
 const users = await fetch(
@@ -20,7 +20,13 @@ const users = await fetch(
   .then((data) => data.results);
 ---
 
-<div class="relative w-full h-[48rem] overflow-hidden">
+<p
+class="text-4xl font-semibold py-6 fredoka-script text-center text-green-900 bg-gray-50"
+>
+COMENTARIOS
+</p>
+
+<div class="relative w-full h-[48rem] overflow-hidden bg-gray-50"> 
   <!-- Imagen de fondo dinámica -->
   <div class="absolute inset-0 z-0">
     <img
@@ -32,14 +38,14 @@ const users = await fetch(
   </div>
 
   <!-- Capa oscura con negro más claro -->
-  <div class="absolute inset-0 bg-black/5 z-10"></div>
+  <div class="absolute inset-0 bg-black/15 z-10"></div>
 
   <!-- Secciones con títulos arriba -->
   <div class="relative z-20 flex h-full items-start">
     {
       destinos.map((item, index) => (
         <div
-          class="group flex-1 relative cursor-pointer transition-all duration-500 h-full border-1 border-white"
+          class="group flex-1 relative cursor-pointer transition-all duration-500 h-full border-1 border-gray-50"
           onmouseenter={`document.getElementById('background-image').src = '${item.imagen}'`}
         >
           <!-- Capa de fondo negro cuando el mouse esté sobre la sección -->
@@ -48,11 +54,11 @@ const users = await fetch(
           <!-- Títulos con tipografías diferentes -->
           <div class="absolute top-0 w-full text-center z-20">
             <!-- Texto VISIT con fondo negro que cambia al pasar el mouse -->
-            <p class="text-gray-700 text-lg font-sans font-bold transition-all duration-300 pt-8 group-hover:text-white group-hover:text-xl nunito-script">
+            <p class="text-green-950 text-lg font-sans font-bold transition-all duration-300 pt-8 group-hover:text-white group-hover:text-xl nunito-script">
               VISIT
             </p>
             <!-- Nombre del destino con color plomo por defecto y blanco en hover -->
-            <p class="text-gray-700 text-2xl font-serif font-extrabold transition-all duration-300 group-hover:text-white group-hover:text-3xl">
+            <p class="text-green-950 text-2xl font-serif font-extrabold transition-all duration-300 group-hover:text-white group-hover:text-3xl">
               {item.nombre}
             </p>
           </div>
@@ -121,10 +127,6 @@ const users = await fetch(
     transition: transform 0.3s, color 0.3s; /* Asegura transición suave */
   }
 
-  /* Los títulos se mantienen grises por defecto */
-  .group .text-gray-700 {
-    color: #4b5563; /* Gris oscuro */
-  }
 
   /* Los títulos se vuelven blancos cuando se hace hover */
   .group:hover .text-gray-700 {

@@ -1,0 +1,52 @@
+---
+import type { BaseTour } from "../../types/Service";
+import ImageSlider from "./ImageSlider";
+
+const { service } = Astro.props as { service: BaseTour };
+---
+
+<div
+  class="bg-white rounded-xl overflow-hidden shadow-md w-full max-w-sm flex flex-col transition hover:shadow-lg hover:scale-[1.01] mx-auto"
+>
+  <!-- Imagen -->
+  <div class="relative w-full h-56">
+    <ImageSlider images={service.images} client:only />
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="flex flex-col px-5 py-4 gap-3 flex-grow">
+    <!-- Título -->
+    <h3 class="text-center text-xl font-semibold text-green-950">
+      {service.title}
+    </h3>
+
+    <!-- Detalles rápidos -->
+    <div class="flex justify-center gap-4 text-gray-600 text-sm">
+      <div class="flex items-center gap-1">
+        <span>⏳</span>
+        <span>{service.duration}</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <span>📍</span>
+        <span>{service.location}</span>
+      </div>
+    </div>
+
+    <!-- Precio -->
+    <div class="text-center">
+      <p class="text-green-900 font-bold text-xl">
+        ${service.priceOffer.toFixed(2)}
+      </p>
+    </div>
+
+    <!-- Botón -->
+    <div class="mt-auto flex justify-center">
+      <a
+        href="#"
+        class="w-full bg-green-900 hover:bg-green-950 text-white text-center py-2 rounded-lg font-medium transition"
+      >
+        Reservar Ahora
+      </a>
+    </div>
+  </div>
+</div>

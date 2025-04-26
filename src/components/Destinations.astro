@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/nunito";
+import "@fontsource-variable/fredoka";
 import ib from "../assets/islas-ballestas.jpg";
 import rnp from "../assets/roja.jpg";
 import huacachina from "../assets/huacachina.jpeg";
@@ -25,14 +26,23 @@ const destinations = [
     location: "Perú",
     image: ib.src,
   },
+  {
+    title: "Cuzco",
+    location: "Perú",
+    image: rnp.src,
+  },
 ];
 ---
 
-<div class="p-6">
-  <p class="text-lg font-bold mb-4">DESTINOS</p>
+<div class="p-6 bg-gray-50">
+  <p
+    class="text-4xl font-semibold mb-4 py-2 fredoka-script text-center text-green-900"
+  >
+    DESTINOS
+  </p>
   <div class="hidden md:grid grid-cols-3 gap-5 nunito-script">
     <div
-      class="col-span-1 row-span-3 relative rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition aspect-[5/7.86]"
+      class="col-span-1 row-span-1 relative rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition aspect-[2/3]"
     >
       <img
         src={destinations[0].image}
@@ -52,8 +62,8 @@ const destinations = [
     <!-- Parte superior derecha: 2 imágenes -->
     <div class="col-span-2 grid grid-cols-2 gap-5">
       {
-        destinations.slice(1, 3).map((dest) => (
-          <div class="relative rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition aspect-[4/3]">
+        destinations.slice(1, 5).map((dest) => (
+          <div class="relative rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition aspect-[4/2.91]">
             <img
               src={dest.image}
               alt={dest.title}
@@ -67,25 +77,6 @@ const destinations = [
           </div>
         ))
       }
-    </div>
-
-    <!-- Parte inferior derecha: imagen ancha -->
-    <div
-      class="col-span-2 relative rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition aspect-[8/3]"
-    >
-      <img
-        src={destinations[3].image}
-        alt={destinations[3].title}
-        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-      />
-      <div
-        class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition"
-      >
-      </div>
-      <div class="absolute bottom-3 left-3 text-white z-10">
-        <h3 class="text-base font-semibold">{destinations[3].title}</h3>
-        <p class="text-xs">{destinations[3].location}</p>
-      </div>
     </div>
   </div>
 

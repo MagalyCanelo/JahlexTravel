@@ -4,24 +4,28 @@ import "@fontsource-variable/nunito";
 import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { SiTripadvisor } from "react-icons/si";
 import logo from "../assets/logo.png";
+import logov from "../assets/logov.jpg";
+
 import icono from "../assets/icono.png";
 ---
 
 <header class="relative w-full h-fit">
   <div class="absolute w-full grid grid-cols-3 items-center z-[99] p-4">
     <div class="flex justify-start">
-      <img src={logo.src} alt="Logo de la empresa" class="w-64" />
+      <a href="/"
+        ><img src={logo.src} alt="Logo de la empresa" class="w-68" /></a
+      >
     </div>
 
     <div class="flex justify-center">
       <nav
-        class="border border-white rounded-full px-6 py-2 flex space-x-6 items-center text-white text-sm font-semibold whitespace-nowrap min-w-[525px]"
+        class="border border-white rounded-full px-6 py-2 flex space-x-6 items-center text-white text-sm font-semibold whitespace-nowrap bg-black/5 min-w-[525px]"
       >
-        <a href="#" class="px-4 py-1 rounded-full bg-white/30">INICIO</a>
+        <a href="#" class="px-4 py-1 rounded-full bg-green-900/50">INICIO</a>
         <a
           href="#"
           class="inline-block text-center min-w-[140px] py-1 rounded-full transition-all duration-100
-         bg-transparent hover:bg-white hover:px-2 hover:text-black"
+         bg-transparent hover:bg-green-950 hover:px-2 hover:text-white"
         >
           SOBRE NOSOTROS
         </a>
@@ -29,7 +33,7 @@ import icono from "../assets/icono.png";
         <div class="relative group">
           <button
             class="text-center min-w-[90px] py-1 rounded-full transition-all duration-200
-                   bg-transparent hover:bg-white hover:px-2 hover:text-black flex items-center justify-center gap-1"
+                   bg-transparent hover:bg-green-950 hover:px-2 hover:text-white flex items-center justify-center gap-1"
           >
             TOURS
             <span
@@ -43,7 +47,7 @@ import icono from "../assets/icono.png";
         <a
           href="#"
           class="inline-block text-center min-w-[90px] py-1 rounded-full transition-all duration-100
-         bg-transparent hover:bg-white hover:px-2 hover:text-black"
+         bg-transparent hover:bg-green-950 hover:px-2 hover:text-white"
         >
           CONTACTO
         </a>
@@ -74,14 +78,17 @@ import icono from "../assets/icono.png";
 
     <div
       id="sidebar"
-      class="fixed top-0 right-0 h-full w-80 bg-black text-white p-6 transform translate-x-full transition-all duration-700 ease-out z-50"
+      class="fixed top-0 right-0 h-full w-80 bg-white text-black p-6 transform translate-x-full transition-all duration-700 ease-out z-50"
     >
-      <button id="closeBtn" class="text-white text-2xl mb-6 cursor-pointer">
+      <button id="closeBtn" class="text-black text-2xl mb-6 cursor-pointer">
         &times;
       </button>
 
-      <h1 class="text-4xl font-serif mb-4">JAHLEX TRAVEL ADVENTURE</h1>
-      <p class="mb-6 text-sm text-gray-300">
+      <img src={logov.src} alt="Logo de la empresa" class="w-48 items-center" />
+
+      <!--       <h1 class="text-4xl font-serif mb-4">JAHLEX TRAVEL ADVENTURE</h1>
+ -->
+      <p class="mb-6 mt-4 text-sm text-black">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit...
       </p>
 
@@ -90,19 +97,19 @@ import icono from "../assets/icono.png";
       <p class="text-sm mt-2">(+51) 999 999 999</p>
       <p class="text-sm">jahlex@mail.com</p>
 
-      <div class="flex space-x-4 mt-6 text-xl">
+      <div class="flex space-x-4 mt-6 text-xl text-green-900">
         <a
           href="https://www.tiktok.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTiktok className="hover:text-gray-300" />
+          <FaTiktok className="hover:text-green-950" />
         </a>
 
         <a
           href="https://twitter.com"
           target="_blank"
-          class="text-white hover:text-gray-400"
+          class="text-white hover:text-green-950"
         >
           <i class="fab fa-twitter"></i>
         </a>
@@ -110,7 +117,7 @@ import icono from "../assets/icono.png";
         <a
           href="https://facebook.com"
           target="_blank"
-          class="text-white hover:text-gray-400"
+          class="text-white hover:text-green-950"
         >
           <i class="fab fa-facebook"></i>
         </a>

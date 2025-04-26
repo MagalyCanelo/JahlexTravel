@@ -42,11 +42,11 @@ export default function Carousel() {
       ))}
 
       {/* Texto sobre las imágenes */}
-      <div className="absolute z-20 bottom-10 left-10 text-white max-w-xl nunito-script">
-        <h1 className="text-5xl font-bold leading-tight drop-shadow-lg">
+      <div className="absolute z-20 bottom-10 left-10 text-white max-w-xl">
+        <h1 className="text-5xl font-medium leading-tight drop-shadow-lg nunito-script">
           {texts[currentIndex]}
         </h1>
-        <button className="mt-6 px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition">
+        <button className="mt-6 px-6 py-3 bg-green-900 text-white font-semibold rounded-full hover:bg-green-950 transition nunito-script">
           Reservar Ahora
         </button>
       </div>
@@ -58,7 +58,7 @@ export default function Carousel() {
           rel="noopener noreferrer"
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
         >
-          <FaTiktok className="text-black" />
+          <FaTiktok className="text-green-900" />
         </a>
         <a
           href="https://www.tripadvisor.com"
@@ -66,7 +66,7 @@ export default function Carousel() {
           rel="noopener noreferrer"
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
         >
-          <SiTripadvisor className="text-black" />
+          <SiTripadvisor className="text-green-900" />
         </a>
         <a
           href="https://wa.me/1234567890"
@@ -74,7 +74,7 @@ export default function Carousel() {
           rel="noopener noreferrer"
           className="w-10 h-10 flex items-center justify-center rounded-full bg-white/70 hover:bg-white/90 transition"
         >
-          <FaWhatsapp className="text-black" />
+          <FaWhatsapp className="text-green-900" />
         </a>
       </div>
     </div>

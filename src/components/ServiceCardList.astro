@@ -1,0 +1,134 @@
+---
+// src/pages/index.astro (o donde estés renderizando)
+
+import ServiceSection from "../components/TourCard/ServiceSection.astro";
+import {
+  type BaseTour,
+  ActivityLevel,
+  GroupSize,
+  TourCategory,
+} from "../types/Service";
+
+const services: BaseTour[] = [
+  {
+    id: 1,
+    title: "Islas Ballestas",
+    duration: "2 horas aprox",
+    location: "Paracas - Ica",
+    priceOffer: 15.0,
+    priceRegular: 0,
+    itinerary: [],
+    activityLevel: ActivityLevel.BAJO,
+    groupSize: GroupSize.PEQUEÑO,
+    schedule: [],
+    availableDates: [],
+    images: [
+      "https://th.bing.com/th/id/OIP.69oeUrgEgZNSUZhgtvYYhgHaE9?rs=1&pid=ImgDetMain",
+      "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/d6/d0/f3.jpg",
+      "https://th.bing.com/th/id/R.4bd56bd87796f71ff1f0b63ae0fea6f5?rik=GmrOg6Oz3sv1EA&pid=ImgRaw&r=0",
+    ],
+    // Usa una URL válida o ruta pública
+    description: "",
+    includes: [],
+    notIncluded: [],
+    recommendations: [],
+    category: TourCategory.AVENTURA,
+    rating: 0,
+  },
+  {
+    id: 2,
+    title: "Islas Ballestas",
+    duration: "2 horas aprox",
+    location: "Paracas - Ica",
+    priceOffer: 15.0,
+    priceRegular: 0,
+    itinerary: [],
+    activityLevel: ActivityLevel.BAJO,
+    groupSize: GroupSize.PEQUEÑO,
+    schedule: [],
+    availableDates: [],
+    images: [
+      "https://th.bing.com/th/id/OIP.69oeUrgEgZNSUZhgtvYYhgHaE9?rs=1&pid=ImgDetMain",
+      "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/d6/d0/f3.jpg",
+      "https://th.bing.com/th/id/R.4bd56bd87796f71ff1f0b63ae0fea6f5?rik=GmrOg6Oz3sv1EA&pid=ImgRaw&r=0",
+    ],
+    // Usa una URL válida o ruta pública
+    description: "",
+    includes: [],
+    notIncluded: [],
+    recommendations: [],
+    category: TourCategory.AVENTURA,
+    rating: 0,
+  },
+  {
+    id: 3,
+    title: "Islas Ballestas",
+    duration: "2 horas aprox",
+    location: "Paracas - Ica",
+    priceOffer: 15.0,
+    priceRegular: 0,
+    itinerary: [],
+    activityLevel: ActivityLevel.BAJO,
+    groupSize: GroupSize.PEQUEÑO,
+    schedule: [],
+    availableDates: [],
+    images: [
+      "https://th.bing.com/th/id/OIP.69oeUrgEgZNSUZhgtvYYhgHaE9?rs=1&pid=ImgDetMain",
+      "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/d6/d0/f3.jpg",
+      "https://th.bing.com/th/id/R.4bd56bd87796f71ff1f0b63ae0fea6f5?rik=GmrOg6Oz3sv1EA&pid=ImgRaw&r=0",
+    ],
+    // Usa una URL válida o ruta pública
+    description: "",
+    includes: [],
+    notIncluded: [],
+    recommendations: [],
+    category: TourCategory.AVENTURA,
+    rating: 0,
+  },
+  {
+    id: 4,
+    title: "Islas Ballestas",
+    duration: "2 horas aprox",
+    location: "Paracas - Ica",
+    priceOffer: 15.0,
+    priceRegular: 0,
+    itinerary: [],
+    activityLevel: ActivityLevel.BAJO,
+    groupSize: GroupSize.PEQUEÑO,
+    schedule: [],
+    availableDates: [],
+    images: [
+      "https://th.bing.com/th/id/OIP.69oeUrgEgZNSUZhgtvYYhgHaE9?rs=1&pid=ImgDetMain",
+      "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/d6/d0/f3.jpg",
+      "https://th.bing.com/th/id/R.4bd56bd87796f71ff1f0b63ae0fea6f5?rik=GmrOg6Oz3sv1EA&pid=ImgRaw&r=0",
+    ],
+    // Usa una URL válida o ruta pública
+    description: "",
+    includes: [],
+    notIncluded: [],
+    recommendations: [],
+    category: TourCategory.AVENTURA,
+    rating: 0,
+  },
+];
+---
+
+<section class="px-6 py-4 bg-gray-50">
+  <p
+    class="text-4xl font-semibold mb-4 py-2 fredoka-script text-center text-green-900 tracking-[0.01em]"
+  >
+    SE<span class="mr-[0.01px]">R</span>VICIOS
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {services.map((servicio) => <ServiceSection service={servicio} />)}
+  </div>
+
+  <div class="mt-8 flex justify-center">
+    <button
+      class="px-6 py-2 bg-green-900 hover:bg-green-950 text-white rounded-full text-lg font-medium transition nunito-script"
+    >
+      Mostrar todo
+    </button>
+  </div>
+</section>
