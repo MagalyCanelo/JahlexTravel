@@ -4,14 +4,14 @@ import { FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { SiTripadvisor } from "react-icons/si";
 import ib from "../assets/islas-ballestas.jpg";
 import rnp from "../assets/roja.JPG";
-import huacachina from "../assets/huacachina.jpeg";
+import huacachina from "../assets/huacachina.jpg";
 
 const images = [ib.src, rnp.src, huacachina.src];
 
 const texts = [
-  "Explora las Islas Ballestas, un paraíso natural",
+  "Explora las Islas Ballestas",
   "Reserva Nacional de Paracas",
-  "Vive la aventura en el oasis de la Huacachina",
+  "Vive la aventura en la Huacachina",
 ];
 
 export default function Carousel() {
@@ -43,7 +43,7 @@ export default function Carousel() {
 
       {/* Texto sobre las imágenes */}
       <div className="absolute z-20 bottom-10 left-10 text-white max-w-xl">
-        <h1 className="text-5xl font-medium leading-tight drop-shadow-lg nunito-script">
+        <h1 className="text-5xl font-bold leading-tight drop-shadow-lg nunito-script">
           {texts[currentIndex]}
         </h1>
         <button className="mt-6 px-6 py-3 bg-green-800 shadow-lg text-white font-semibold rounded-full hover:bg-green-950 transition nunito-script">
