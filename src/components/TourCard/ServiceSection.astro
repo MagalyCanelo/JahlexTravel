@@ -34,7 +34,7 @@ const { service } = Astro.props as { service: BaseTour };
 
     <!-- Precio -->
     <div class="text-center">
-      <p class="text-green-900 font-bold text-xl">
+      <p class="text-green-950 font-black text-xl">
         ${service.priceOffer.toFixed(2)}
       </p>
     </div>
@@ -42,8 +42,8 @@ const { service } = Astro.props as { service: BaseTour };
     <!-- Botón -->
     <div class="mt-auto flex justify-center">
       <a
-        href="#"
-        class="w-full bg-green-900 hover:bg-green-950 text-white text-center py-2 rounded-lg font-medium transition"
+        href={`/detalle/${encodeURIComponent(JSON.stringify(service))}`}
+        class="w-full bg-green-700 hover:bg-green-950 text-white text-center py-2 rounded-lg font-medium transition"
       >
         Reservar Ahora
       </a>

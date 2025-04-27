@@ -46,7 +46,7 @@ export default function Carousel() {
         <h1 className="text-5xl font-medium leading-tight drop-shadow-lg nunito-script">
           {texts[currentIndex]}
         </h1>
-        <button className="mt-6 px-6 py-3 bg-green-900 text-white font-semibold rounded-full hover:bg-green-950 transition nunito-script">
+        <button className="mt-6 px-6 py-3 bg-green-800 shadow-lg text-white font-semibold rounded-full hover:bg-green-950 transition nunito-script">
           Reservar Ahora
         </button>
       </div>

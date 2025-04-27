@@ -13,11 +13,11 @@ const destinos = [
   { nombre: "Cuzco", imagen: rnp.src },
 ];
 
-const users = await fetch(
+/* const users = await fetch(
   "https://randomuser.me/api/?results=20&inc=name,picture"
 )
   .then((res) => res.json())
-  .then((data) => data.results);
+  .then((data) => data.results); */
 ---
 
 <p
@@ -54,11 +54,11 @@ COMENTARIOS
           <!-- Títulos con tipografías diferentes -->
           <div class="absolute top-0 w-full text-center z-20">
             <!-- Texto VISIT con fondo negro que cambia al pasar el mouse -->
-            <p class="text-green-950 text-lg font-sans font-bold transition-all duration-300 pt-8 group-hover:text-white group-hover:text-xl nunito-script">
+            <p class="text-white text-lg font-sans font-bold transition-all duration-300 pt-8 group-hover:text-white group-hover:text-xl nunito-script">
               VISIT
             </p>
             <!-- Nombre del destino con color plomo por defecto y blanco en hover -->
-            <p class="text-green-950 text-2xl font-serif font-extrabold transition-all duration-300 group-hover:text-white group-hover:text-3xl">
+            <p class="text-white text-2xl font-serif font-extrabold transition-all duration-300 group-hover:text-white group-hover:text-3xl">
               {item.nombre}
             </p>
           </div>
@@ -68,7 +68,7 @@ COMENTARIOS
   </div>
 
   <!-- Carrusel de comentarios al fondo pero visible -->
-  <div class="absolute bottom-4 left-0 w-full z-30 px-6">
+  <!-- <div class="absolute bottom-4 left-0 w-full z-30 px-6">
     <div
       class="flex gap-4 w-fit animate-scroll whitespace-nowrap"
       style="animation: scroll-left 40s linear infinite;"
@@ -104,7 +104,7 @@ COMENTARIOS
         )
       }
     </div>
-  </div>
+  </div> -->
 </div>
 
 <style>
